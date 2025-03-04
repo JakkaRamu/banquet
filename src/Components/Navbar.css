@@ -1,0 +1,19 @@
+.navbar {
+    background-color: #e72e77; /* Equivalent to Tailwind's bg-rose-900 */
+    padding: 8px 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(230, 27, 209, 0.5); /* Equivalent to Tailwind's shadow-md */
+  }
+  
+  .nav-link {
+    color: white;
+    margin: 0 16px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #d1d5db; /* Equivalent to Tailwind's hover:text-gray-300 */
+  }
+  
