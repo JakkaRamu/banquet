@@ -1,97 +1,82 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../../App.css';
+import React, { useState } from "react";
+import './vendorSignup.css';
+import imagesingup from './signup-bg.jpg';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const VendorSignup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username:'',
-    brandName: '',
-    city: '',
-    email: '',
-    password: ''
+    brandName: "",
+    city: "",
+    vendorType: "",
+    email: "",
+    phone: "",
+    password: "",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form validation and submission logic here
-    console.log('Form submitted', formData);
+    console.log(formData);
   };
+  const handleCustomer = () => {
+    navigate("/userLogin");
+  }
 
   return (
-    <div className="form-container">
-      <div className="form-box">
-        <h2>Grow your Business</h2>
-        <p>Sign Up to access your Dashboard</p>
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="username">Username*:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
+    <>
+    <div className="container"> {/* Updated class name for container */}
+    <div className="container1"> {/* Updated class name for container */}
+      <div className="left-section"> {/* Updated class name for left section */}
+        <img src={imagesingup} alt="Banquet Hall" />
+
+      </div>
+      <div className="right-section"> {/* Updated class name for right section */}
+        <h2>Grow your Business with EventHaven</h2>
+        <form onSubmit={handleSubmit} className="form"> {/* Updated class name for form */}
+          <input
+            type="text"
+            name="brandName"
+            placeholder="Brand Name*"
+            required
+            value={formData.brandName}
+            onChange={handleChange}
+            className="input" // Updated class name for input
+          />
+          <input
+          type="text"
+          name="vendorName"
+          placeholder="Vendor Name"
+          class = "input"
+          />
+          <select name="city" required value={formData.city} onChange={handleChange} className="select"> {/* Updated class name for select */}
+            <option value="">City (Choose your base city here)*</option>
+            <option value="Delhi">Hyderabad</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+          </select>
+          <input type="email" name="email" placeholder="Email*" required value={formData.email} onChange={handleChange} className="input" />
+          <div className="phone-container">
+            <span>🇮🇳 +91</span>
+            <input type="text" name="phone" placeholder="Phone Number*" required value={formData.phone} onChange={handleChange} className="phone-input" />
           </div>
-          <div>
-            <label htmlFor="brandName">Brand name*:</label>
-            <input
-              type="text"
-              id="brandName"
-              name="brandName"
-              value={formData.brandName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="city">City*:</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email*:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password*:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit">Continue</button>
+          <input type="password" name="password" placeholder="Password*" required value={formData.password} onChange={handleChange} className="input" />
+          <button type="submit" className="button">Continue</button> {/* Updated class name for button */}
         </form>
-        <Link to="/VendorLogin" className="link blue">Already have an Account? Sign in</Link>
-        <Link to="/UserSignup" className="link black">Are you a customer? Customer Sign Up</Link>
+        <p>Already have an account? <Link to="/VendorLogin">Login in</Link></p>
+        <div className="customer-box"> {/* Updated class name for customer box */}
+          <span>Are you a customer?</span>
+          <button className="customer-button" onClick={handleCustomer}>Customer Sign In</button>
+        </div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

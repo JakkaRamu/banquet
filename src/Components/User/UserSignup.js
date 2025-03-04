@@ -1,83 +1,86 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../../App.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom'; // Importing Link for navigation // Importing the same CSS file for styling
+import './UserAuth.css'; // Corrected import for the new CSS file
+import userImage from './userimage.jpg'; // Ensure this image is used
 
 const UserSignup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    phonenumber:'',
-    password: '',
+    brandName: "",
+    city: "",
+    UserType: "",
+    email: "",
+    phone: "",
+    password: "",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleVendorLogin = () => {
+    navigate("/VendorLogin");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form validation and submission logic here
-    console.log('Form submitted', formData);
+    console.log(formData);
   };
 
   return (
+    <div className="container"> {/* Updated class name for container */}
     <div className="form-container">
-      <div className="form-box">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username*:</label>
+      <div className="left-section">
+        <img src={userImage} alt="Banquet Hall" />
+      </div>
+      <div className="right-section">
+        <h2>Grow your Business with EventHaven</h2>
+        <form onSubmit={handleSubmit} className="form">
+          <input
+            type="text"
+            name="UserName"
+            placeholder="User Name"
+            className="input"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email*"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="input"
+          />
+          <div className="phone-container">
+            <span>🇮🇳 +91</span>
             <input
               type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
+              name="phone"
+              placeholder="Phone Number*"
               required
+              value={formData.phone}
+              onChange={handleChange}
+              className="phone-input"
             />
           </div>
-          <div>
-            <label htmlFor="email">Email*:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-          <label htmlFor="phonenumber">Phone Number*:</label>
-            <input
-              type="number"
-              id="number"
-              name="number"
-              value={formData.phonenumber}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password*:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit">Sign Up</button>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password*"
+            required
+            value={formData.password}
+            onChange={handleChange}
+            className="input"
+          />
+          <button type="submit" className="button">Continue</button>
         </form>
-        <Link to="/UserLogin" className="link blue">Already have an Account? Sign in</Link>
-        <Link to="/vendorSignup" className="link black">Are you a vendor? Vendor Sign Up</Link>
+        <p>Already have an account? <Link to="/UserLogin">Sign in</Link></p>
+        <div className="customer-box">
+          <span>Are you a vendor?</span>
+          <button onClick={handleVendorLogin} className="customer-button">VendorLogin</button>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
