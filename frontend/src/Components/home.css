@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --nav-bg:#e72e77;
+    --btn-bg:#d9255b;
+    --btn-font:white;
+}
+body{
+    background-color:#F4EEFF;
+    /* background-image: url('/assets/OIP.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    width: 100%;
+}
+nav{
+    background-color: var(--nav-bg);
+    position: fixed;
+    width: 100%;
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav div{
+    margin: 10px 20px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    
+}
+button{
+    background-color: var(--btn-bg);
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    color:var(--btn-font);
+}
+button:hover{
+    cursor: pointer;
+    font-size: large;
+}
+.search{
+    margin-top: 80px;
+    text-align: center;
+    
+}
+.search span{
+    position:relative;
+    left:300px;
+}
+.search input{
+
+    background-color: var(--btn-bg);
+    border-radius: 15px;
+    width:20%;
+    padding: 8px 20px;
+}
+.search input::placeholder{
+    font-size: medium;
+    color:var(--btn-font)
+}
+main{
+    margin: 30px 50px;
+}
+main h1{
+    font-family:serif;
+    font-style: italic;
+    text-align: center;
+    margin-top: 50px;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .container div {
+    border: 2px solid red;
+    border-radius: 20PX;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    overflow: hidden;
+    background-color: #E8E2F3;
+  }
+.container div img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover; 
+}
