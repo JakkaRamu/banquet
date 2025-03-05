@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import VendorSignup from './pages/admin/VendorSignup';
-import VendorLogin from './pages/admin/VendorLogin';
-import UserSignup from './pages/User/UserSignup';
-import UserLogin from './pages/User/UserLogin';
+import VendorSignup from './Components/admin/VendorSignup';
+import VendorLogin from './Components/admin/VendorLogin';
+import VendorHomepage from './Components/admin/vendorhomepage'; // Import VendorHomepage
+import UserSignup from './Components/User/UserSignup';
+import UserLogin from './Components/User/UserLogin';
 import Navbar from './Components/Navbar';
 import './App.css';
-import Homepage from './components.js/home';
-import NewBusinessRolePage from './components.js/NewBusinessRolePage'; // Updated import
-import CustomerRolePage from './components.js/CustomerRolePage';
 
 function App() {
   return (
@@ -23,6 +21,7 @@ function App() {
           <Route path="/VendorLogin" element={<VendorLogin />} />
           <Route path="/UserSignup" element={<UserSignup />} />
           <Route path="/UserLogin" element={<UserLogin />} />
+          <Route path="/vendorhomepage" element={<VendorHomepage />} /> {/* New route for vendor homepage */}
         </Routes>
       </div>
     </Router>

@@ -1,0 +1,120 @@
+/* Define Color Variables */
+:root {
+    --primary-color: #e72e77;
+    --secondary-color: #d9255b;
+    --terinary-color:#f1779c;
+    --background-color: hsla(351, 100%, 86%, 0.1);
+    --text-color: black;
+    --white: white;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .logout-btn {
+    padding: 8px 12px;
+    border: 2px solid var(--white);
+    background: none;
+    color: var(--white);
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .logout-btn:hover {
+    background: var(--white);
+    color: var(--primary-color);
+  }
+  
+  /* Main Section */
+  .main {
+    display: flex;
+    flex: 1;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 10px;
+  }
+  
+  .sidebar-btn {
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    background: var(--terinary-color);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 5px;
+  }
+  
+  .sidebar-btn:hover {
+    background: var(--white);
+    color: var(--secondary-color);
+  }
+  
+  /* Content */
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .hotel-list {
+    border: 2px solid var(--secondary-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    background: var(--white);
+    color: var(--text-color);
+  }
+  
+  .hotels {
+    margin-top: 10px;
+    padding: 20px;
+    border-top: 2px solid var(--secondary-color);
+  }
+  
+  /* Add Hotel Button */
+  .add-hotel-btn {
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    background: var(--secondary-color);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .add-hotel-btn:hover {
+    background: var(--white);
+    color: var(--secondary-color);
+  }
+  
