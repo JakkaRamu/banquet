@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // Removed useEffect import
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'; // Importing Link for navigation // Importing the same CSS file for styling
 import './UserAuth.css'; // Corrected import for the new CSS file
@@ -27,8 +27,8 @@ const UserSignup = () => {
     console.log(formData);
   };
 
-  return (
-    <div className="container"> {/* Updated class name for container */}
+  return (<>
+  <div className="container">
     <div className="form-container">
       <div className="left-section">
         <img src={userImage} alt="Banquet Hall" />
@@ -82,6 +82,7 @@ const UserSignup = () => {
       </div>
     </div>
     </div>
+    </>
   );
 };
 

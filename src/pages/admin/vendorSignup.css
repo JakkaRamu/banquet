@@ -1,12 +1,12 @@
 .container {
-    display: flex;
-  height:100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
   background-color: hsl(351, 100%, 86%, 0.1);
 }
 .container1{
-
     display: flex;
-    height:80vh;
+    height: 80vh;
     margin: auto;
 }
 .left-section {
@@ -80,7 +80,7 @@
 .customer-box {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px;
   border: 1px dashed #ddd;
 }
